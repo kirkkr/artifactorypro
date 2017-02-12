@@ -1,0 +1,8 @@
+---
+- name: Logger
+  shell: "echo {{ date }}: Start service >>{{ log_file }}"
+
+- name: Start service
+  service:
+    name: artifactory
+    state: started

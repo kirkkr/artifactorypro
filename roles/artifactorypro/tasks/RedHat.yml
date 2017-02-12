@@ -1,0 +1,39 @@
+---
+- name: Logger
+  shell: "echo {{ date }}: artifactorypro/tasks/RedHat.yml - Start >>{{ log_file }}"
+
+- name: Logger
+  shell: "echo {{ date }}: Get ArtifactoryPro from storage >>{{ log_file }}"
+
+- name: Logger
+  shell: "echo {{ date }}: Install java-1.7.0-openjdk package >>{{ log_file }}"
+
+- name: "Install  java-{{ java_version }}-openjdk"
+  yum:
+    name:  "java-{{ java_version }}-openjdk"
+    state: present
+
+- name: Logger
+  shell: "echo {{ date }}: Install libselinux-python package >>{{ log_file }}"
+
+- name: Install  libselinux-python
+  yum:
+    name:  libselinux-python
+    state: present
+
+- name: Get {{ artifactory_dist }}-{{ artifactory_version }}.rpm from storage
+  copy:
+    src: "/home/kevin/Downloads/{{ artifactory_dist }}-{{ artifactory_version }}.rpm"
+    dest: "/tmp/{{ artifactory_dist }}-{{ artifactory_version }}.rpm"
+    mode: 0644
+
+- name: Logger
+  shell: "echo {{ date }}: Install yum package >>{{ log_file }}"
+
+- name: Install yum package
+  yum:
+    name: "/tmp/{{ artifactory_dist }}-{{ artifactory_version }}.rpm"
+    state: present
+
+- name: Logger
+  shell: "echo {{ date }}: artifactorypro/tasks/RedHat.yml - Finish >>{{ log_file }}"

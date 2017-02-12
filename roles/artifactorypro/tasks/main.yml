@@ -1,0 +1,9 @@
+---
+
+- name: Clear log file
+  file:
+    path: "{{ log_file }}"
+    state: absent
+
+- include: "{{ os_version }}.yml"
+- include: "init.yml"

@@ -1,0 +1,13 @@
+ansible_connection: ssh
+ansible_ssh_user: root
+ansible_ssh_pass: 123gizmo
+
+date: "{{ lookup('pipe', 'date +%d/%m/%Y_%H:%M:%S') }}"
+
+log_file: /tmp/artifactory_install.log
+
+os_version: "{{ 'RedHat' if ansible_distribution == 'CentOS' else ansible_distribution }}"
+
+java_version: "1.8.0"
+artifactory_dist: "jfrog-artifactory-oss"
+artifactory_version: "5.0.1"
