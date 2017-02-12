@@ -1,6 +1,6 @@
 ---
 - name: Logger
-  shell: "echo {{ date }}: Start init.yml >>{{ log_file }}"
+  shell: "echo {{ date }}: artifactorypro/tasks/init.yml - Start >>{{ log_file }}"
 
 - name: Logger
   shell: "echo {{ date }}: Start service >>{{ log_file }}"
@@ -11,4 +11,4 @@
     state: started
 
 - name: Logger
-  shell: "echo {{ date }}: End init.yml >>{{ log_file }}"
+  shell: "echo {{ date }}: artifactorypro/tasks/init.yml - Finish >>{{ log_file }}"
