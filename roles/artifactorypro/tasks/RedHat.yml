@@ -6,7 +6,7 @@
   shell: "echo {{ date }}: Get ArtifactoryPro from storage >>{{ log_file }}"
 
 - name: Logger
-  shell: "echo {{ date }}: Install java-1.7.0-openjdk package >>{{ log_file }}"
+  shell: "echo {{ date }}: Install java-{{ java_version }}-openjdk package >>{{ log_file }}"
 
 - name: "Install  java-{{ java_version }}-openjdk"
   yum:
